@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Infra.IoC;
+using MVC.MappingConfig;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Adicione os serviços ao container.
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddAutoMapperConfiguration();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
