@@ -23,6 +23,7 @@ namespace Application.Services
         public void Add(ProductViewModel product)
         {
             var mapProduct = _mapper.Map<Product>(product);
+            _productRepository.Add(mapProduct);
         }
 
         public async Task<ProductViewModel> GetById(int? id)
