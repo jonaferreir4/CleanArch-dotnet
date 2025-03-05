@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Application.Shared.Behavior;
 using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application.Services
@@ -16,6 +18,8 @@ namespace Application.Services
             services.AddMediatR( cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         }
     }
 }

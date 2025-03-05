@@ -21,13 +21,13 @@ namespace project02.Infrastructure.Repositories
 
         public void Create(T entity)
         {
-            entity.DateCreated = DateTime.Now;
+            entity.DateCreated = DateTime.UtcNow;
             Context.Add(entity);
         }
 
         public void Delete(T entity)
         {
-            entity.DateDeleted = DateTime.Now;
+            entity.DateDeleted = DateTime.UtcNow;
             Context.Remove(entity);
         }
 
@@ -43,7 +43,7 @@ namespace project02.Infrastructure.Repositories
 
         public void Update(T entity)
         {
-            entity.DateUpdated = DateTime.Now;
+            entity.DateUpdated = DateTime.UtcNow;
             Context.Update(entity);
         }
     }
