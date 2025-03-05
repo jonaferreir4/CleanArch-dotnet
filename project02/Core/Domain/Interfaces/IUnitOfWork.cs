@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface UnitOfWork
+    public interface IUnitOfWork
     {
         Task Commit(CancellationToken cancellationToken );
     }
